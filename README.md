@@ -1,5 +1,7 @@
 # KV260 Face Recognition Demo
 
+[中文版 README](README.zh-TW.md)
+
 Real-time face detection + recognition pipeline fully deployed on AMD Kria KV260,
 using INT8-quantized DPU models compiled with Vitis AI.
 
@@ -49,7 +51,7 @@ Both models follow the same **Post-Training Quantization (PTQ)** flow inside the
 FP32 model (ONNX / PyTorch)
     │
     ▼  torch_quantizer("calib")
-Calibration — forward pass on ~200 representative images
+Calibration — forward pass on ~300 representative images
     │         (collects activation statistics for fix_point calculation)
     ▼  torch_quantizer("test") + export_quant_config()
 INT8 quantized model (NNDCT simulation)
