@@ -86,13 +86,13 @@ Compiled .xmodel — DPU binary ready for KV260
 | SCRFD det_10g | ~28 MB (ONNX) | **5.2 MB** | 5.4× |
 | MobileFaceNet | ~4.0 MB (PT) | **1.5 MB** | 2.7× |
 
-### Inference latency on KV260 *(to be filled after hardware measurement)*
+### Inference latency on KV260 *(DPU-only, 50-run average)*
 
-| Model | Latency (ms) | FPS |
-|-------|-------------|-----|
-| SCRFD det_10g | — | — |
-| MobileFaceNet | — | — |
-| Full pipeline | — | — |
+| Model | Latency | FPS |
+|-------|---------|-----|
+| SCRFD det_10g (640×640) | 31.8 ms | 31.4 |
+| MobileFaceNet (112×112) | 1.3 ms | 758 |
+| Pipeline (SCRFD + MFN) | ~33 ms | ~30 |
 
 ---
 
