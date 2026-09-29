@@ -65,8 +65,8 @@ Compiled .xmodel — DPU binary ready for KV260
 
 | Model | Calibration images | Source |
 |-------|-------------------|--------|
-| SCRFD det_10g | 200 face images | Diverse lighting/pose subset |
-| MobileFaceNet | 200 face crops | Aligned 112×112, varied identities |
+| SCRFD det_10g | 300 face images | Diverse lighting/pose subset |
+| MobileFaceNet | 300 face crops | Aligned 112×112, varied identities |
 
 ---
 

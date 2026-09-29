@@ -3,7 +3,7 @@
 SCRFD det_10g INT8 PTQ for KV260 (DPUCZDX8G) via pytorch_nndct.
 
 Usage (inside Vitis-AI Docker):
-    python3 quantize_det.py \
+    python3 quantize_scrfd.py \
         --model  /workspace/det_10g.onnx \
         --calib  /workspace/calib_faces \
         --out    /workspace/quantize_result_det \
