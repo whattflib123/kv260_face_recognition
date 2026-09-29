@@ -130,10 +130,42 @@ Place in `models/`:
 
 ---
 
-## Setup (on KV260)
+## Quantization Scripts
+
+`quantize/` contains the actual PTQ scripts run inside the Vitis AI Docker:
+
+| Script | Description |
+|--------|-------------|
+| `quantize_scrfd.py` | SCRFD det_10g calibration + INT8 export |
+| `compile_scrfd.sh` | `vai_c_xir` compile → `scrfd_det10g.xmodel` |
+| `quantize_mfn.py` | MobileFaceNet calibration + INT8 export |
+| `compile_mfn.sh` | `vai_c_xir` compile → `mobilefacenet.xmodel` |
+
+Run inside the Vitis AI Docker (`xilinx/vitis-ai-cpu:latest`):
 
 ```bash
-pip install onnxruntime opencv-python-headless
+docker run -v $(pwd):/workspace xilinx/vitis-ai-cpu:latest bash
+# inside container:
+conda activate vitis-ai-pytorch
+python quantize/quantize_scrfd.py    # → quantize_result/scrfd_det10g_int.xmodel
+bash quantize/compile_scrfd.sh       # → compiled_model/scrfd_det10g.xmodel
+```
+
+---
+
+## Setup (on KV260)
+
+`vart` and `xir` are part of the KV260 PetaLinux image — no pip install needed.
+Only OpenCV is required if not already present:
+
+```bash
+pip install opencv-python-headless
+```
+
+Load the DPU overlay before running (required after every reboot):
+
+```bash
+xmutil loadapp kv260-benchmark-b4096
 ```
 
 ## Usage
